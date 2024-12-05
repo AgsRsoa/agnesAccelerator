@@ -1,0 +1,29 @@
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Year started</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+
+    @for(show of shows; track show.id) {
+      <tr >
+        <td data-label="Name">{{show.name}}</td>
+        <td data-label="Country">{{show.country}}</td>
+        <td data-label="Year started">{{show.start_date | date: 'yyyy'}}</td>
+        <td data-label="Status">{{show.status}}</td>
+        <td data-label="Actions">
+          <span class="icon-info" routerLink="{{'/showDetails/'+ show.id}}"></span> <!-- ou routerLink="showDetails/{{show.id}}"-->
+          <span class="icon-bookmark" (click)="favoriteService.toggleFavorite(show.id)" [class.highlight]="favoriteService.favoritesShows().includes(show.id)" ></span>
+          <span class="icon-link"></span>
+        </td>
+      </tr>
+    }
+
+
+  </tbody>
+</table>

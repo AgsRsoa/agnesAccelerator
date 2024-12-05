@@ -1,0 +1,17 @@
+
+<h1>{{showDetails.name}}</h1>
+<p>{{showDetails.country}} - {{showDetails.start_date | date: 'yyyy'}}</p>
+<p>Rating : {{showDetails.rating | number}} / 10 rated by {{showDetails.rating_count}} people</p>
+<p>{{showDetails.description}}</p>
+<img [src]="showDetails.image_thumbnail_path">
+<button routerLink="/home">Back</button>
+
+
+<!-- @for(e of showDetails.episodes; track e.name){
+<p>{{e.name}}</p>
+}@empty{
+  <p>no episodes</p>
+} -->
+
+{{showDetails.episodes.length}} episodes
+{{episodesCount}} seasons
