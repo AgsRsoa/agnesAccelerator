@@ -3,11 +3,15 @@ import { Component, inject, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FavoritesService } from '../favorites.service';
 import { ShowDetails } from '../show-details.type';
+import { CountdownPipe } from '../countdown.pipe';
+import { TogglefavoriteDirective } from '../togglefavorite.directive';
+
+
 
 @Component({
   selector: 'app-favorite-card',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,RouterLink, CountdownPipe, TogglefavoriteDirective ],
   templateUrl: './favorite-card.component.html',
   styleUrl: './favorite-card.component.css'
 })

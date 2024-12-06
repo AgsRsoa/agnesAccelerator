@@ -9,6 +9,7 @@ import {HttpClientModule } from '@angular/common/http';
 import { FavoriteCardComponent } from './favorite-card/favorite-card.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,7 @@ import { FavoriteCardComponent } from './favorite-card/favorite-card.component';
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
-    FavoriteCardComponent
+    FavoriteCardComponent,
   ],
   bootstrap: [AppComponent]
 })

@@ -45,7 +45,7 @@ fetchFavoritesShowsDetails():Signal<Array<ShowDetails>>{
 //forkJoin : Prend le tableau de requete et fait une unique requête
  //forkJoin : prend en param array d'Observables et renvoie 1 Observable de type Array sur lequel subscribe
   forkJoin(this.restFavoritesShowsDetails).subscribe(arrayFavoritesShowInfos => {
-
+    console.log(arrayFavoritesShowInfos)
     this.favoritesShowsDetailsSignal.set(arrayFavoritesShowInfos)
     })
   return this.favoritesShowsDetailsSignal
