@@ -40,7 +40,7 @@ export class TvShowDetailsService {
 fetchFavoritesShowsDetails():Signal<Array<ShowDetails>>{
 //Transforme chaque id en favori en requête regroupée sous forme de tableau
   this.restFavoritesShowsDetails = this.favoritesShows().map(showId =>
-    this.http.get<{tvShow:ShowDetails}>(`https://www.episodate.com/api/show-details?q=${showId}`).pipe(map(s => s.tvShow),shareReplay(1))
+    this.http.get<{tvShow:ShowDetails}>(`https://www.episodate.com/api/show-details?q=${showId}`).pipe(map(s => s.tvShow))
 )
 //forkJoin : Prend le tableau de requete et fait une unique requête
  //forkJoin : prend en param array d'Observables et renvoie 1 Observable de type Array sur lequel subscribe
