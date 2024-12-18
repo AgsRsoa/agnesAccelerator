@@ -1,0 +1,8 @@
+<p>{{popularShows.page}} of {{popularShows.pages}}</p>
+
+<div class="container">
+  <div><button (click)="firstButton()"> << </button></div>
+  <div> <button (click)="secondButton(popularShows.page)" [disabled]="popularShows.page===1"> < </button></div>
+<div><button (click)="thirdButton(popularShows.page)" [disabled]="popularShows.page === popularShows.pages"> > </button></div>
+ <div><button (click)="fourthButton()"> >> </button></div>
+</div>

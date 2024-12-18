@@ -11,13 +11,13 @@ import { TogglefavoriteDirective } from '../togglefavorite.directive';
 @Component({
   selector: 'app-favorite-card',
   standalone: true,
-  imports: [CommonModule,RouterLink, CountdownPipe, TogglefavoriteDirective ],
+  imports: [RouterLink, CountdownPipe, TogglefavoriteDirective ],//Comme composant standalone possibilité d'importer plusieurs types : directive,pipe et module.Commonmodule inutile ici. Imports dependances du template
   templateUrl: './favorite-card.component.html',
   styleUrl: './favorite-card.component.css'
 })
 export class FavoriteCardComponent {
 
-  protected favoriteService = inject(FavoritesService);
+  //protected favoriteService = inject(FavoritesService); Plus besoin d'injecter le service car la directive customisée toggleFavorite s'occupe de l'ajout en favori et du colori jaune du bookmark dans le template
 
   @Input({required:true})
   tvShowDetails! : ShowDetails;

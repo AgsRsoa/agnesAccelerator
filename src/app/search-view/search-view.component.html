@@ -13,7 +13,9 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <app-tv-show-table [shows]="tvShow()"></app-tv-show-table>
-      </div>
+<!--     <app-tv-show-table [popularShows]="popularShows()"></app-tv-show-table>
+ -->    <app-tv-show-table [allShows]="allShows" [isSearching]="tvservice.searching()"></app-tv-show-table>
+
+   </div>
   </div>
-</div>
+ </div>

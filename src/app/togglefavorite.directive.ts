@@ -9,11 +9,14 @@ import { FavoritesService } from './favorites.service';
 export class TogglefavoriteDirective {
 
   private favoriteService = inject(FavoritesService)
-  @Input()
+  @Input({required:true, alias:'appTogglefavorite'}) /*alias:'appTogglefavorite' alias avec le même nom que le selector. L'alias permet l'utilisation de la syntaxe [appTogglefavorite]="tvShowDetails.id" dans le template HTML du composant qui utilise la directive.Cela siginifie l'id est un Input pour la directive*/
   showId! : Show["id"]
 
-  @HostBinding('class')
-  bookmarkClass="icon-bookmark highlight";
+  @HostBinding('class.highlight')
+  //bookmarkClass="icon-bookmark highlight"; //Sous cette forme = une propriété statique. On veut plutôt appeler du code.
+  get isFavorite(){
+    return this.favoriteService.favoritesShows().includes(this.showId)
+  }
 
   constructor() { }
 

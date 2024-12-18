@@ -1,6 +1,3 @@
-<span *ngIf="favoriteService.favoritesShows().includes(tvShowDetails.id)">
-<p>favorite-card works!</p>
-
 <div class="card large">
   <div class="section">
     <div class="row">
@@ -10,8 +7,8 @@
       <div class="col-md-1">
         <span class="icon-info" routerLink="details/{{tvShowDetails.id}}"></span>
 <!--         <span class="icon-bookmark" (click)="favoriteService.toggleFavorite(tvShowDetails.id)" [class.highlight]="favoriteService.favoritesShows().includes(tvShowDetails.id)"></span>
- -->
-  <span class="icon-bookmark" appTogglefavorite [showId]="tvShowDetails.id" ></span>
+ Avant la directive custom-->
+  <span class="icon-bookmark" [appTogglefavorite]="tvShowDetails.id" ></span>
 
 </div>
     </div>
@@ -21,4 +18,3 @@
     Next episode : {{tvShowDetails| countdown}} <!-- ATTENTION le nom du pipe est le nom utilisé lors de la génération du pipe via CLI : ng g pipe coutdown-->
   </div>
 </div>
-</span>

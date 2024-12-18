@@ -8,9 +8,9 @@ import { formatDistance } from 'date-fns';
 })
 export class CountdownPipe implements PipeTransform {
 //Création d'un custom pipe pour éviter de transformer l'objet JSON reçu, juste utiliser un pipe pour modifier l'affichage des infos
-  transform(value:ShowDetails ): any {
-   /*  if(value.status ==="Ended" || value.status ==="Canceled/Ended")
-       return "The show has ended";  // Code fonctionnel */
+  transform(value:ShowDetails ):any{
+    /*if(value.status ==="Ended" || value.status ==="Canceled/Ended")
+       return "The show has ended"; */ // Code fonctionnel
 
    //Utilisation de date_fns
    return value.countdown ?? formatDistance(new Date(Date.now()), new Date(value.episodes.at(-1)!.air_date), {addSuffix:true})

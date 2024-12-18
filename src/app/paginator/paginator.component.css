@@ -1,0 +1,19 @@
+.container{
+  display:flex;
+  width: 100%; /* Ensure the container takes up the full width of the screen */
+}
+
+ .container > div {
+  flex: 1; /*Each child div will take an equal amount of space within the container*/
+  text-align: center; /*Center-align the button within each div*/
+}
+
+
+.container button {
+  width: 100%; /* Make the button fill its parent div */
+  height: 50px; /* Optional: Set a consistent height for the buttons */
+}
+
+.red{
+  background-color: red;
+}

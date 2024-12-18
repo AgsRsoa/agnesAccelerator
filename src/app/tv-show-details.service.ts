@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, Signal, signal } from '@angular/core';
+import { effect, inject, Injectable, Signal, signal } from '@angular/core';
 import { ShowDetails } from './show-details.type';
 import { Show } from './show.type';
 import { forkJoin, map, Observable, shareReplay } from 'rxjs';
@@ -18,7 +18,10 @@ export class TvShowDetailsService {
 
  sortedFavoritesShows : Array<Date> = [];
 
-  constructor(private http:HttpClient) { this.fetchFavoritesShowsDetails()}
+  constructor(private http:HttpClient) {
+  effect(()=>{    this.fetchFavoritesShowsDetails()
+  })
+  }
 
 
 

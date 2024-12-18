@@ -15,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {bindToComponentInputs:true})],
+  imports: [RouterModule.forRoot(routes, {bindToComponentInputs:true})],//forRoot importe la config ou une clef d'acces
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
