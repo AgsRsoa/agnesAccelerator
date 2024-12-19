@@ -13,7 +13,7 @@
     <tbody>
 
 
-        @for(show of allShows().tvShow(); track show.id) {
+        @for(show of allShows().tvShow; track show.id) {
           <tr >
             <td data-label="Name">{{show.name}}</td>
             <td data-label="Country">{{show.country}}</td>
@@ -32,7 +32,7 @@
   @else{
 
     <tbody>
-      @for(show of allShows().popularShows().tv_shows; track show.id) {
+      @for(show of allShows().popularShows.tv_shows; track show.id) {
         <tr >
           <td data-label="Name">{{show.name}}</td>
           <td data-label="Country">{{show.country}}</td>
@@ -48,4 +48,4 @@
     </tbody>
   }
 </table>
-<app-paginator *ngIf="allShows().popularShows().pages > 1"[popularShows]="allShows().popularShows()" ></app-paginator>
+<app-paginator *ngIf="allShows().popularShows.pages > 1"[popularShows]="allShows().popularShows" ></app-paginator>

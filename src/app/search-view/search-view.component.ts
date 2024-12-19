@@ -16,16 +16,13 @@ export class SearchViewComponent{ //Container component has the business logic i
 
   protected tvservice = inject(TvShowsService);
   //protected tvShow! :Signal<Show[]>; // ! tell TypeScript that you are certain the tvShow property will be initialized at some point before it is accessed
-  protected tvShow=this.tvservice.tvShows
-  /* protected allShows = {
-    tvShow:this.tvservice.tvShows,//tvShows est asReadonly mais reste un Signal<Show[]>
-    popularShows:this.tvservice.popularShows
-  } */
+  //protected tvShow=this.tvservice.tvShows
 
     protected allShows = this.tvservice.allShows
-  //pas d'initialisation avec valeur par défaut ou d'initialisation dans le constructeur
+
+
   constructor(){
-    //this.onSearch("");
+    //this.onSearch(""); inutile car l'inject du service appelle le constructeur du service qui fait le fetch
   }
 
   onSearch(name:string, event?:Event):void{
@@ -36,10 +33,9 @@ export class SearchViewComponent{ //Container component has the business logic i
       else{
          //this.tvShow= this.tvservice.searchTvShow(name);
         // this.allShows.tvShow = this.tvservice.searchTvShow(name)
-        this.allShows().tvShow = this.tvservice.searchTvShow(name)
+        this.allShows().tvShow = this.tvservice.searchTvShow(name)() //Ici réassignation this.allShows().tvShow
       }
-
-
-
   }
+
+
 }

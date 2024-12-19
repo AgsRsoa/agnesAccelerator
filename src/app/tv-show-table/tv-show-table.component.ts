@@ -26,8 +26,8 @@ export class TvShowTableComponent {
 
   @Input()
   allShows!:Signal<{
-    tvShow:Signal<Show[]>,
-    popularShows:Signal<PopularShows>
+    tvShow:Show[],
+    popularShows:PopularShows
   }>
 
   showId!:Show["id"]
