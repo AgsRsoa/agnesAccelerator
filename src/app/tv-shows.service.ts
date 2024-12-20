@@ -11,7 +11,7 @@ import { PopularShows, PopularShowsStatiscs } from './popular-shows.type';
 export class TvShowsService {
 
   private tvShowSignal = signal<Show[]>([]);//Accéder à la proriété tv_shows de l'objet PopularShows
-  //tvShows = this.tvShowSignal.asReadonly(); /*Pour les besoins du computed signal, comme tvShowsSignal est private pas besoin d'exposer le signal en asReadonly() sinon exposer un signal en asReadonly*/
+  tvShows = this.tvShowSignal.asReadonly(); /*Pour les besoins du computed signal, comme tvShowsSignal est private pas besoin d'exposer le signal en asReadonly() sinon exposer un signal en asReadonly*/
 
   private popularShowsSignal = signal<PopularShows>({
     total:0,
@@ -19,13 +19,13 @@ export class TvShowsService {
     pages:0,
     tv_shows:[]
   });
-  //popularShows = this.popularShowsSignal.asReadonly();
+  popularShows = this.popularShowsSignal.asReadonly();
   private searchingSignal = signal(false);
   readonly searching = this.searchingSignal.asReadonly();
   readonly allShows = computed(()=> {
  return{
-   tvShow:this.tvShowSignal(), //Utiliser les valeurs des signaux pour qu'ils deviennent une dépendance de computed donc ()
-   popularShows:this.popularShowsSignal()
+   tvShow:this.tvShows(), //Utiliser les valeurs des signaux pour qu'ils deviennent une dépendance de computed donc ()
+   popularShows:this.popularShows()
  }
 })
 //readonly signifie pas de réassignation possible càd allShows.tvShow = qqchose Impossible

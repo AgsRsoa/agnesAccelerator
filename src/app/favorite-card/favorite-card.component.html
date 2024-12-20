@@ -1,4 +1,4 @@
-<div class="card large">
+<!-- <div class="card large">
   <div class="section">
     <div class="row">
       <div class="col-md-11">
@@ -6,8 +6,8 @@
       </div>
       <div class="col-md-1">
         <span class="icon-info" routerLink="details/{{tvShowDetails.id}}"></span>
-<!--         <span class="icon-bookmark" (click)="favoriteService.toggleFavorite(tvShowDetails.id)" [class.highlight]="favoriteService.favoritesShows().includes(tvShowDetails.id)"></span>
- Avant la directive custom-->
+        <span class="icon-bookmark" (click)="favoriteService.toggleFavorite(tvShowDetails.id)" [class.highlight]="favoriteService.favoritesShows().includes(tvShowDetails.id)"></span>
+ ligne 9 ancienne ligne avant la directive custom appTogglefavorite
   <span class="icon-bookmark" [appTogglefavorite]="tvShowDetails.id" ></span>
 
 </div>
@@ -15,6 +15,16 @@
   </div>
   <img [src]="tvShowDetails.image_thumbnail_path" class="section media"/>
   <div class="section">
-    Next episode : {{tvShowDetails| countdown}} <!-- ATTENTION le nom du pipe est le nom utilisé lors de la génération du pipe via CLI : ng g pipe coutdown-->
+    Next episode : {{tvShowDetails| countdown}}  ATTENTION le nom du pipe est le nom utilisé lors de la génération du pipe via CLI : ng g pipe coutdown
   </div>
-</div>
+</div> -->
+
+<!-- Le contenu à passer à app-card qui lui contient ng-content -->
+<app-card *ngFor="let fav of showDetails" [tvShowDetails]="fav" [title]="fav.name"> <!-- [title]="Yolo" error car Yolo n'est pas une propriété de favorite-card donc pas de binding mais title="Yolo" affiche Yolo car initialise la prorpiété du DOM avec la valeur Yolo-->
+  <div body> body</div>
+    <div footer *ngFor="let pic of fav.pictures"> <!-- TODO gérer que fav.pictures.length == 0-->
+     <img src="pic">
+    </div>
+</app-card> <!--passer le header, body, footer et bouttons-->
+
+<!--TODO Mettre les vraies valeurs-->

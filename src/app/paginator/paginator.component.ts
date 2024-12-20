@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.css'
 })
-export class PaginatorComponent {
+export class PaginatorComponent { //Voir le code du paginator plus générique
 
   protected tvService = inject(TvShowsService)
   @Input()
